@@ -1,0 +1,76 @@
+<ul class="posts">
+    {{#post_data}}
+        <li class="post">
+            <div class="post-record" id="post-{{count}}">
+                <div id="content">
+                    <img src="../images/add.jpg" class="add-button" title="{{title}}" type="{{type}}" id="{{count}}" />
+                </div>
+            {{#text_flag}}
+                <div class="record text-record" >
+                    {{{body}}}
+                </div>
+            {{/text_flag}}
+            {{#photo_flag}}
+                {{#photos}}
+                    <div class="record photo-record">
+                        <img src="{{original_size.url}}" />
+                        <div class="image-caption">
+                            <i>{{{photo_caption}}}</i>
+                        </div>
+                    </div>
+                {{/photos}}
+                {{^photos}}
+                    <div class="record photo-record">
+                        <img src="{{image_permalink}}" />
+                        <div class="image-caption">
+                            <i>{{{photo_caption}}}</i>
+                        </div>
+                    </div>
+                {{/photos}}
+            {{/photo_flag}}
+            {{#quote_flag}}
+                Quotable Quotes:
+                <div class="record quote-record">
+                    <div class="quote-text">"{{text}}"</div>
+                    <div class="quote-source">Source: {{source}}</div>
+                </div>
+            {{/quote_flag}}
+            {{#chat_flag}}
+                <div class="record chat-record">
+                    The Chat <br>
+                    {{#dialogue}}
+                        {{name}}: {{{phrase}}}<br>
+                    {{/dialogue}}
+                </div>
+            {{/chat_flag}}
+            {{#audio_flag}}
+                <div class="record audio-record">
+                    {{{embed}}}
+                </div>
+            {{/audio_flag}}
+            {{#video_flag}}
+                <div class="record video-record">
+                    {{{video_embed}}}
+                </div>
+            {{/video_flag}}
+            {{#link_flag}}
+                <div class="record link-record">
+                    Link: <a href="{{url}}">{{title}}</a><br>
+                    Summary: {{{summary}}}
+                </div>
+            {{/link_flag}}
+            {{#answer_flag}}
+                Q&A <br>
+                <div class="record answer-record">
+                    <div class="question">
+                        Question: {{{question}}}
+                    </div><br>
+                    <div class="answer">
+                        Answer: {{{answer}}}
+                    </div>
+                </div>
+            {{/answer_flag}}
+            </div>
+        </li>
+    {{/post_data}}
+</ul>
