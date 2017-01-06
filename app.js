@@ -7,7 +7,7 @@ var bodyParser = require( 'body-parser' );
 
 // instantiate application
 var app = express();
-var port = 10001;
+var port = process.env.PORT || 5000;
 
 // Exclude static assets from url routing
 app.use(express.static(__dirname + '/public'));
